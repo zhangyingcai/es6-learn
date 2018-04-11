@@ -53,6 +53,6 @@ console.log(str_6.length); // 10
 var count = 10,
     price = 0.2,
     // 还有这种操作？用,分割
-counts = '$' + price * count;
+counts = '$' + (price * count).toFixed(2);
 
 console.log(counts);
