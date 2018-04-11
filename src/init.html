@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6环境搭建</title>
+</head>
+<body>
+    初始化项目/ctrl ~打开终端
+    npm init -y
+    全局安装babel-cli
+    npm install -g babel-cli
+    查看版本
+    babel --version
+    babel src/js/init.js -o dist/js/init.js
+    你会发现，在dist/js目录下确实生产了init.js文件，但是文件并没有变化，还是使用了ES6的语法。因为我们还需要安装转换包才能成功转换
+    本地安装babel-preset-es2015 和 babel-cli
+    npm install --save-dev babel-preset-es2015 babel-cli
+    安装完成后，我们可以看一下我们的package.json文件，已经多了devDependencies选项。 
+    在根目录下新建.babelrc文件，并打开录入下面的代码 
+    {
+        "presets":[
+            "es2015"
+        ],
+        "plugins":[]
+    }
+    重新执行转换命令
+    babel src/index.js -o dist/index.js
+    简化转换命令
+
+
+    变量的三种声明方式
+    var 
+    let 声明变量,类似于var但是所声明的变量,只在let命令所在的代码块有效。
+    const 声明常量
+</body>
+<script>
+    let b = 2;
+    {
+        let a =1;
+    }
+    // console.log(a+' '+b);
+    //ReferenceError
+
+    // var c = 1;
+    // function log(){
+    //     console.log(c);
+    //     if(false){
+    //         var c = 2;
+    //     }
+    // }
+    // log();
+    // undefind  ?为啥
+
+    //代码相当于
+    // var c ;
+    // function log(){
+    //     console.log(c);
+    //     if(false){
+    //         c = 2;
+    //     }
+    // }
+    // log();
+
+    
+</script>
+<!-- <script src="../dist/js/init.js"></script> -->
+<script src="../src/js/init.js"></script>
+</html>
